@@ -1,0 +1,268 @@
+/**
+ * File Manager - Wordpress Plugin.
+ *
+ * @copyright:    Copyright 2009 Sergey Cherepanov. (http://www.cherepanov.org.ua)
+ * @author:       Sergey Cherepanov (sergey@cherepanov.org.ua)
+ * @license:      http://www.gnu.org/licenses/gpl.html GNU GENERAL PUBLIC LICENSE v3.0
+ * @date          29.09.09
+ */
+
+html, html *{
+    margin:0;
+    padding:0;
+}img{
+    border:0;
+}html, body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}body{
+    font:100 12px Verdana;
+}body.main{
+    background:url('../images/mainbg.gif') repeat-x #40aedb;
+    background:#126CAB;
+    text-align:center;
+    overflow:hidden;
+}body.preview{
+    width:210px;
+    background:url('../images/framebg.gif');
+}a{
+    cursor:pointer;
+}a:hover{
+    text-decoration:underline;
+}#page{
+    width:600px;
+    height:440px;
+    margin: auto;
+    padding-top:20px;
+    text-align:left;
+}.lcol, .rcol{
+    float:left;
+}.lcol{
+    margin-right:10px;
+    width:370px;
+}.rcol{
+    width:210px;
+    overflow:hidden;
+}#browser{
+    width:370px;
+    height:435px;
+}#info{
+    width:210px;
+    height:230px;
+    margin:10px 0 0 0;
+}.r-col .actions{
+    background:#fff;
+}.rcol h2{
+    padding:0;
+}h2{
+    height:26px;
+    width:100%;
+    overflow:hidden;
+    background:url('../images/h2.gif') repeat-x #ccc;
+    font:100 12px Verdana;
+    text-align:left;
+    padding:0;
+}h2 span{
+    display:block;
+    float:left;
+    width:100%;
+}h2 span.l{
+    background:url('../images/corner-left.gif') 0 0 no-repeat;
+    width:auto;
+    padding:4px 0 0 15px;
+}h2 span.r{
+    background:url('../images/corner-right.gif') 100% 0 no-repeat;
+}.rcol .btns{
+    background:#eee;
+    text-align:center;
+}.rcol .btns input{
+    cursor:pointer;
+    margin:5px auto;
+    border:0;
+}.frame{
+    background:url('../images/framebg.gif');
+}.actions ul{
+    clear:both;
+    padding: 5px 12px;
+    list-style-type:none;
+}.actions ul li{
+    line-height:180%;
+    padding-left:20px;
+    background-repeat:no-repeat;
+    background-position:0 50%;
+}.actions ul li.deleteall{
+    background-image:url('../images/delete.gif');
+}.actions ul li.deleteall a:hover{
+    color:#B44949;
+}.actions ul li.addnew{
+    background-image:url('../images/add.gif');
+}.actions ul li.compress{
+    background-image:url('../images/type/file_arch.gif');
+}.actions ul li.upload{
+    background-image:url('../images/upload.gif');
+}#info-box{
+    text-align:center;
+    padding-top:5px;
+    font:100 12px Verdana;
+}#info-box, #info-box img{
+    width:200px;
+    margin:auto;
+}.browser{
+    background:#fff;
+}.browser ul.list{
+    height:385px;
+    overflow:auto;
+    _overflow-y:scroll;
+    _overflow-x:hidden;
+    _width:370px;
+}.browser ul.list li:hover{
+    background-color:#fafafa;
+}.browser ul li.selected{
+    background-color:#A2D2F3 !important;
+    color:#fff !important;
+}.browser ul li.selected a{
+    color:#fff !important;
+}.browser ul li{
+    clear:both;
+    _clear:none;
+    _float:left;
+    display:block;
+    list-style-type:none;
+    border-bottom:1px solid #eee;
+    background-position:10px 50%;
+    background-repeat:no-repeat;
+    padding:1px 0 0 0;
+    margin:0 !important;
+    cursor:pointer;
+}*:first-child + html .browser ul li{
+    clear:both;
+    width:370px;
+    float:left;
+}*:first-child + html .browser ul.list{
+    overflow-x:hidden;
+    width:370px;
+}.browser ul li:after{
+    content:'.';
+    display:block;
+    visibility:hidden;
+    overflow:hidden;
+    width:0px;
+    height:0px;
+    clear:both;
+}a{
+    color:#333;
+    text-decoration:none;
+}a:hover{
+    text-decoration:underline;
+}.browser ul span{
+    float:left;
+    display:block;
+}.browser ul span.size{
+    padding-top:3px;
+}*:first-child + html .browser ul .actions{
+    margin-right:7px;
+}.browser ul .name{
+    clear:both;
+    float:left;
+    display:block;
+    padding-top:3px;
+    padding-bottom:3px;
+    width:160px;
+    overflow:hidden;
+    padding-left:35px;
+    margin-right:5px;
+}*:first-child + html .browser ul .name{
+    padding-top:2px;
+    padding-bottom:0;
+}.browser ul .header {
+    font-weight:900;
+    background:#eee;
+}.browser ul .actions{
+    float:right;
+    padding-right:15px;
+}.browser ul .dir{
+    background-image:url('../images/dir.gif');
+}.browser ul .up{
+    background-image:url('../images/dir-up.gif');
+    width:100%;
+}.browser ul .file{
+    background-image:url('../images/file.gif');
+}.browser ul input{
+    margin-bottom:2px;
+    margin-right:5px;
+}.msg{
+    margin:15px;
+    text-align:center;
+}.msg form{
+    display:inline;
+}.msg .ok, .msg .cancel{
+    margin:0 15px;
+}.msg .err{
+    text-align:left;
+    margin-bottom:10px;
+}.msg .err span{
+    color:red;
+}#dirname{
+    width:200px;
+    margin:15px auto;;
+}button{
+    cursor:pointer;
+    background:none;
+    border:none;
+}#lightbox{
+    background:url('../images/lightbox.png');
+    _background:none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/lightbox.png', sizingMethod='scale');
+    left:0;
+    top:0;
+    position:absolute;
+    width:1600px;
+    height:1200px;
+    display:none;
+}#uploadform{
+    position:absolute;
+    left:50%;
+    top:30%;
+    margin-left:-150px;
+    width:370px;
+    height:100px;
+    background:#fff;
+    display:none;
+    padding-bottom:15px;
+}.btn{
+    cursor:pointer;
+}.upload-block{
+    text-align:center;
+    margin-top:10px;
+}.upload-block object, .upload-block embed{
+    display:block;
+    margin:10px auto;
+}.lcol .bottombg{
+    height:5px;
+    width:370px;
+    overflow:hidden;
+    background:url('../images/bottombgbrw.gif') 0 0 no-repeat #fff;
+}.rcol .bottombg{
+    height:5px;
+    width:210px;
+    overflow:hidden;
+    background:url('../images/bottombg.gif') 0 0 no-repeat;
+}.rcol .bottombg.info{
+    background-color:#fafafa;
+    margin-bottom:10px;
+}.rcol .bottombg.btns{
+    background-color:#eee;
+}.browser ul .file.gif{
+    background-image:url('../images/type/file_gif.gif');
+}.browser ul .file.jpg{
+    background-image:url('../images/type/file_jpg.gif');
+}.browser ul .file.png{
+    background-image:url('../images/type/file_png.gif');
+}.rar, .bz, .zip, .cab, .gz, .tar{
+    background-image:url('../images/type/file_arch.gif') !important;
+}.browser ul .file.pdf{
+    background-image:url('../images/type/file_pdf.gif');
+}table iframe{
+    display:none !important;
+}
